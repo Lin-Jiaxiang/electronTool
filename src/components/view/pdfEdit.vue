@@ -46,6 +46,7 @@ const fs = window.fs;
 const pathMod = window.path;
 const os = window.os;
 import { PDFDocument, degrees } from 'pdf-lib'
+
 export default {
   name: "pdfEdit",
   data() {
@@ -68,13 +69,15 @@ export default {
         return false
       }
       const pdfDoc = await PDFDocument.create()
+      //按每6个pdf分割数组
       let index = parseInt(list.length / 6) + 1
       var result = [];
       for(let i=0, len=list.length; i<len; i+=6){
         result.push(list.slice(i,i+6));
       }
+
       for(let num = 0; num < index; num++){
-        pdfDoc.addPage()
+        pdfDoc.addPage() //超出6个pdf，新增一页
         for(let i in result[num]){
           let page = pdfDoc.getPage(num)
           const sourceBuffer = fs.readFileSync(result[num][i].raw.path).buffer
@@ -86,16 +89,16 @@ export default {
             // 页面截取区域大小
             { left: 120, right: 480, bottom: 540, top: 800 },
 
-            // Translate all drawings of the embedded page by (10, 200) units
+            // Translate all drawings of the embedded page by (10, 200) units 这个配置还不明白啥意思
             [1, 0, 0, 1, 10, 200],
           )
           let x,y
           if(i % 2 == 0){
             x = -100
-            y = -218 * parseInt(i / 2)
+            y = -248 * parseInt(i / 2)
           }else{
-            x = 188
-            y = -218 * parseInt(i / 2)
+            x = 200
+            y = -248 * parseInt(i / 2)
           }
           page.drawPage(embeddedPage, {
             x: x,
