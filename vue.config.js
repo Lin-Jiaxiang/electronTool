@@ -4,9 +4,8 @@ module.exports = {
             builderOptions: {
                 appId: 'lin.com',
                 productName: "实用工具",
-                icon: "public/windows.ico",
                 win: {
-                    icon: 'public/windows.ico',
+                    icon: 'public/tool.png',
                     target: ["zip", "nsis"]
                 }
             },
