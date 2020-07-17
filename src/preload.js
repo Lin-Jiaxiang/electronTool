@@ -8,5 +8,3 @@ window.fs = require("fs");
 window.compressing = require("compressing");
 window.os = require("os");
 
-window.PDFDocument = require('pdf-lib');
-
