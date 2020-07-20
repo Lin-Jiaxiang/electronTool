@@ -5,8 +5,8 @@
         class="upload-demo"
         drag
         action="#"
-        :before-upload="onBeforeUploadImage"
-        :http-request="UploadImage"
+        :before-upload="onBeforeUploadTxt"
+        :http-request="UploadTxt"
         :on-change="handleChange"
         :file-list="fileList"
       >
@@ -43,11 +43,8 @@
 <script>
 const AipSpeech = window.AipSpeech;
 const fs = window.fs;
-// const compressing = window.compressing;
 const pathMod = window.path;
 const os = window.os;
-// const remote = window.remote;
-// const objectData = remote.getGlobal('sharedObject');
 
 export default {
   name: "picToText",
@@ -74,7 +71,7 @@ export default {
     handleChange(){
       this.fileList = []
     },
-    onBeforeUploadImage(file) {
+    onBeforeUploadTxt(file) {
       const isIMAGE = file.type === "text/plain";
       const isLt1M = file.size / 1024 / 1024 < 0.5;
       if (!isIMAGE) {
@@ -89,7 +86,7 @@ export default {
       }
       return isIMAGE && isLt1M;
     },
-    UploadImage(param) {
+    UploadTxt(param) {
       let _this = this
       this.loading = true;
       let path = param.file.path;

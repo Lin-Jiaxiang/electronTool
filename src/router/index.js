@@ -6,8 +6,8 @@ Vue.use(VueRouter);
 const routes = [
   {
     path: '/', 
-    name: 'index',
-    component: () => import('@/components/view/picText.vue')
+    name: 'picToText',
+    component: () => import('@/components/view/textToMp3.vue')
   },
   {
     path: '/pdf', 

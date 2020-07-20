@@ -15,7 +15,7 @@
     </el-menu-item>
     <el-menu-item index="/pdf">
       <i class="el-icon-menu"></i>
-      <span slot="title">PDF处理</span>
+      <span slot="title">添加审批单</span>
     </el-menu-item>
   </el-menu>
 </template>
