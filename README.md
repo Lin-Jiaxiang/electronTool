@@ -1,5 +1,10 @@
 # electronTool
 
+## 安装node_modules
+
+> npm install 
+> 可能会遇到electron下载失败的问题，需要使用cnpm install electron
+
 运行：npm run electron:serve
 
 编译：npm run electron:build

@@ -55,14 +55,11 @@ export default {
     };
   },
   created() {
-    
+
   },
-  mounted() {
-    
-  },
+  mounted() {},
   methods: {
     async start(){
-      
       let list = this.fileList
       if(list.length == 0){
         this.$message.warning("请上传pdf");
@@ -89,7 +86,7 @@ export default {
             // 页面截取区域大小
             { left: 120, right: 480, bottom: 540, top: 800 },
 
-            // Translate all drawings of the embedded page by (10, 200) units 这个配置还不明白啥意思
+            // 这个配置还不明白啥意思
             [1, 0, 0, 1, 10, 200],
           )
           let x,y
